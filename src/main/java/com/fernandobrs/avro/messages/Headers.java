@@ -15,8 +15,6 @@ import static java.util.stream.Collectors.toSet;
  * simplicity).
  */
 public class Headers {
-    // private static final LogFormatEnforcer LOGGER = LogFormatEnforcer.loggerFor(Headers.class);
-
     private final Map<String, String> headersMap;
 
     public Headers() {
@@ -28,31 +26,21 @@ public class Headers {
     }
 
     public void put(String key, String value) {
-        // LOGGER.trace(b -> b.operation("put").and("key", key).and("value", value));
-        String oldValue = headersMap.put(requireNonNull(key), requireNonNull(value));
-        // LOGGER.debug(b -> b.operation("put").and("key", key).and("value", value).and("oldValue", oldValue));
+        headersMap.put(requireNonNull(key), requireNonNull(value));
     }
 
     public Optional<String> get(String key) {
-        // LOGGER.trace(b -> b.operation("get").and("key", key));
-        Optional<String> result = ofNullable(headersMap.get(key));
-        // LOGGER.debug(b -> b.operation("get").and("key", key).and("result", result));
-        return result;
+        return ofNullable(headersMap.get(key));
     }
 
     public Collection<Pair<String, String>> getAll() {
-        // LOGGER.trace(b -> b.operation("getAll"));
-        Collection<Pair<String, String>> result = headersMap.entrySet().stream()
-                .map(e -> Pair.of(e.getKey(), e.getValue()))
-                .collect(toSet());
-        // LOGGER.debug(b -> b.operation("getAll").and("result", result));
-        return result;
+        return headersMap
+            .entrySet().stream()
+            .map(e -> Pair.of(e.getKey(), e.getValue()))
+            .collect(toSet());
     }
 
     public Optional<String> remove(String key) {
-        // LOGGER.trace(b -> b.operation("remove").and("key", key));
-        Optional<String> result = ofNullable(headersMap.remove(key));
-        // LOGGER.debug(b -> b.operation("remove").and("key", key).and("result", result));
-        return result;
+        return ofNullable(headersMap.remove(key));
     }
 }
