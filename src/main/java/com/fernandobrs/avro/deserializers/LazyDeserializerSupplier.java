@@ -1,8 +1,7 @@
-package com.fernandobrs.avro.serializers;
+package com.fernandobrs.avro.deserializers;
 
 import java.util.function.Supplier;
 import static java.util.Objects.requireNonNull;
-import com.fernandobrs.avro.models.Deserializer;
 
 /**
  * {@link Supplier} implementation that lazily deserializes a given byte[].

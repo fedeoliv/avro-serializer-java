@@ -5,8 +5,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import com.fernandobrs.avro.models.Headers;
-import com.fernandobrs.avro.models.Serializer;
+
+import com.fernandobrs.avro.messages.Headers;
 
 /**
  * Simple {@link Serializer} implementation for {@link Integer}s

@@ -1,4 +1,6 @@
-package com.fernandobrs.avro.models;
+package com.fernandobrs.avro.deserializers;
+
+import com.fernandobrs.avro.messages.Headers;
 
 /**
  * Simple contract to be implemented by deserialization classes.

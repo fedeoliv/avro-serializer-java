@@ -1,10 +1,10 @@
 package com.fernandobrs.avro.serializers;
 
 import com.fernandobrs.avro.converters.AvroMessageConverter;
-import com.fernandobrs.avro.models.AvroMessage;
-import com.fernandobrs.avro.models.Headers;
-import com.fernandobrs.avro.models.Message;
-import com.fernandobrs.avro.models.Serializer;
+import com.fernandobrs.avro.messages.AvroMessage;
+import com.fernandobrs.avro.messages.Headers;
+import com.fernandobrs.avro.messages.Message;
+
 import org.apache.avro.io.*;
 import org.apache.avro.specific.SpecificDatumReader;
 import org.apache.avro.specific.SpecificDatumWriter;

@@ -4,12 +4,11 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.nio.ByteBuffer;
 import java.util.function.Supplier;
 
-import com.fernandobrs.avro.models.AvroMessage;
-import com.fernandobrs.avro.serializers.LazyDeserializerSupplier;
-import com.fernandobrs.avro.models.Converter;
-import com.fernandobrs.avro.models.Headers;
-import com.fernandobrs.avro.models.Message;
-import com.fernandobrs.avro.models.Serializer;
+import com.fernandobrs.avro.deserializers.LazyDeserializerSupplier;
+import com.fernandobrs.avro.messages.AvroMessage;
+import com.fernandobrs.avro.messages.Headers;
+import com.fernandobrs.avro.messages.Message;
+import com.fernandobrs.avro.serializers.Serializer;
 
 import static java.util.Objects.requireNonNull;
 import static java.util.stream.Collectors.toList;

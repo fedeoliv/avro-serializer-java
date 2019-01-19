@@ -1,5 +1,5 @@
 {
-    "namespace": "com.fernandobrs.avro.models",
+    "namespace": "com.fernandobrs.avro.messages",
     "type": "record",
     "name": "AvroMessage",
     "fields": [
