@@ -3,12 +3,11 @@ package com.fernandobrs.avro;
 import java.util.Optional;
 import java.util.UUID;
 
-import com.fernandobrs.avro.messages.Headers;
 import com.fernandobrs.avro.messages.Message;
-import com.fernandobrs.avro.messages.MessageHeader;
+import com.fernandobrs.avro.messages.headers.HeaderConfig;
+import com.fernandobrs.avro.messages.headers.Headers;
+import com.fernandobrs.avro.messages.headers.MessageHeader;
 import com.fernandobrs.avro.serializers.AvroSerializer;
-import com.fernandobrs.avro.utils.EventTypes;
-import com.fernandobrs.avro.utils.HeaderConfig;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;

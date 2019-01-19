@@ -7,7 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import com.fernandobrs.avro.converters.AvroMessageConverter;
 import com.fernandobrs.avro.messages.AvroMessage;
-import com.fernandobrs.avro.messages.Headers;
+import com.fernandobrs.avro.messages.headers.Headers;
 import com.fernandobrs.avro.messages.Message;
 import static java.util.Objects.requireNonNull;
 

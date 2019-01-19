@@ -1,4 +1,4 @@
-package com.fernandobrs.avro.utils;
+package com.fernandobrs.avro;
 
 public class EventTypes {
     // Balance Service

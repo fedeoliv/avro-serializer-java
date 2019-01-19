@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 import com.fernandobrs.avro.deserializers.LazyDeserializerSupplier;
 import com.fernandobrs.avro.messages.AvroMessage;
-import com.fernandobrs.avro.messages.Headers;
+import com.fernandobrs.avro.messages.headers.Headers;
 import com.fernandobrs.avro.messages.Message;
 import com.fernandobrs.avro.serializers.GenericSerializer;
 import static java.util.stream.Collectors.toList;

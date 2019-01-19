@@ -4,9 +4,9 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.function.Supplier;
-
-import com.fernandobrs.avro.utils.HeaderConfig;
-
+import com.fernandobrs.avro.messages.headers.HeaderConfig;
+import com.fernandobrs.avro.messages.headers.Headers;
+import com.fernandobrs.avro.messages.headers.MessageHeader;
 import static java.util.Objects.requireNonNull;
 
 /**

@@ -1,4 +1,4 @@
-package com.fernandobrs.avro.messages;
+package com.fernandobrs.avro.messages.headers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
