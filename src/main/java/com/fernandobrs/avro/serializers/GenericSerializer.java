@@ -5,7 +5,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-
 import com.fernandobrs.avro.messages.Headers;
 
 /**
@@ -31,12 +30,8 @@ public class GenericSerializer<T> implements Serializer<T> {
     @SuppressWarnings("unchecked")
     public T deserialize(byte[] data) {
         try {
-            ByteArrayInputStream in = new ByteArrayInputStream(data);
-            ObjectInputStream is = new ObjectInputStream(in);
-            
-            T result = (T) is.readObject();
-
-            return result;
+            ObjectInputStream inputStream = createInputStream(data);            
+            return (T) inputStream.readObject();
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -54,12 +49,8 @@ public class GenericSerializer<T> implements Serializer<T> {
     @Override
     public Headers deserializeHeaders(byte[] data) {
         try {
-            ByteArrayInputStream in = new ByteArrayInputStream(data);
-            ObjectInputStream is = new ObjectInputStream(in);
-            
-            Headers result = (Headers) is.readObject();
-
-            return result;
+            ObjectInputStream inputStream = createInputStream(data);
+            return (Headers) inputStream.readObject();
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -72,5 +63,10 @@ public class GenericSerializer<T> implements Serializer<T> {
         }
 
         return null;
+    }
+
+    private ObjectInputStream createInputStream(byte[] data) throws IOException {
+        ByteArrayInputStream in = new ByteArrayInputStream(data);
+        return new ObjectInputStream(in);
     }
 }
