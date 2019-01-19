@@ -1,11 +1,9 @@
 
-package com.fernandobrs.avro.models.payloads.balance;
+package com.fernandobrs.avro;
 
 import java.io.Serializable;
 
-
-
-public class BalanceSucceded implements Serializable {
+public class SampleEvent implements Serializable {
     private static final long serialVersionUID = 1L;
     private String transactionId;
     private String correlationId;
