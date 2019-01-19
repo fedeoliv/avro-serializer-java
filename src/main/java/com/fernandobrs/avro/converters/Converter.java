@@ -7,5 +7,5 @@ package com.fernandobrs.avro.converters;
  */
 interface Converter<F, T> {
     T convert(F toConvert);
-    F reverse(T toReverse);
+    F revert(T toReverse);
 }

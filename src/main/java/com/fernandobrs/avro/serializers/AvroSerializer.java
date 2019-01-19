@@ -8,8 +8,12 @@ import com.fernandobrs.avro.messages.Message;
 import org.apache.avro.io.*;
 import org.apache.avro.specific.SpecificDatumReader;
 import org.apache.avro.specific.SpecificDatumWriter;
+
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -30,7 +34,7 @@ public class AvroSerializer {
             throw new RuntimeException("Error serializing message", e);
         }
     }
-
+    
     public static <T> Message<T> deserialize(byte[] bytes) {
         AvroMessageConverter<T> messageConverter = createConverter();
         Decoder decoder = DecoderFactory.get().binaryDecoder(bytes, null);
@@ -74,7 +78,6 @@ public class AvroSerializer {
     }
 
     private static <T> AvroMessageConverter<T> createConverter() {
-        Serializer<T> payloadSerializer = new GenericSerializer<>();
-        return new AvroMessageConverter<>(requireNonNull(payloadSerializer));
+        return new AvroMessageConverter<>();
     }
 }

@@ -17,21 +17,10 @@ public class AvroMessageSerializer<T> implements Serializer<Message<T>> {
     private final DatumWriter<AvroMessage> datumWriter;
     private final DatumReader<AvroMessage> datumReader;
 
-    public AvroMessageSerializer(Serializer<T> payloadSerializer) {
-        this.messageConverter = new AvroMessageConverter<>(requireNonNull(payloadSerializer));
-        this.datumWriter = new SpecificDatumWriter<>(AvroMessage.getClassSchema());
-        this.datumReader = new SpecificDatumReader<>(AvroMessage.getClassSchema());
-    }
-
     public AvroMessageSerializer() {
-        this.messageConverter = createConverter();
+        this.messageConverter = new AvroMessageConverter<>();
         this.datumWriter = new SpecificDatumWriter<>(AvroMessage.getClassSchema());
         this.datumReader = new SpecificDatumReader<>(AvroMessage.getClassSchema());
-    }
-
-    private AvroMessageConverter<T> createConverter() {
-        Serializer<T> payloadSerializer = new GenericSerializer<>();
-        return new AvroMessageConverter<>(requireNonNull(payloadSerializer));
     }
 
     @Override

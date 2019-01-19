@@ -2,67 +2,65 @@ package com.fernandobrs.avro.converters;
 
 import org.apache.commons.lang3.tuple.Pair;
 import java.nio.ByteBuffer;
+import java.util.Collection;
+import java.util.Map;
 import java.util.function.Supplier;
-
 import com.fernandobrs.avro.deserializers.LazyDeserializerSupplier;
 import com.fernandobrs.avro.messages.AvroMessage;
 import com.fernandobrs.avro.messages.Headers;
 import com.fernandobrs.avro.messages.Message;
-import com.fernandobrs.avro.serializers.Serializer;
-
-import static java.util.Objects.requireNonNull;
+import com.fernandobrs.avro.serializers.GenericSerializer;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 
 public class AvroMessageConverter<T> implements Converter<Message<T>, AvroMessage> {
-    private final Serializer<T> payloadSerializer;
-
-    public AvroMessageConverter(Serializer<T> payloadSerializer) {
-        this.payloadSerializer = requireNonNull(payloadSerializer);
-    }
 
     @Override
-    public AvroMessage convert(Message<T> toConvert) {
+    public AvroMessage convert(Message<T> message) {
         AvroMessage.Builder builder = AvroMessage.newBuilder();
+        Map<CharSequence, CharSequence> headers = getHeaders(message);
+        ByteBuffer payload = getPayload(message);
 
-        builder.setHeaders(
-                toConvert.getAllHeaders().stream().collect(toMap(Pair::getKey, Pair::getValue))
-        );
-        builder.setPayload(
-                ByteBuffer.wrap(payloadSerializer.serialize(toConvert.getPayload()))
-        );
+        builder.setHeaders(headers);
+        builder.setPayload(payload);
 
-        AvroMessage result = builder.build();
-        return result;
+        return builder.build();
     }
 
     @Override
-    public Message<T> reverse(AvroMessage toConvert) {
-        Headers headers = new Headers(
-            toConvert.getHeaders()
-                .entrySet().stream()
-                .map(e -> Pair.of(e.getKey().toString(), e.getValue().toString()))
-                .collect(toList())
-        );
- 
-        Supplier<T> payload = new LazyDeserializerSupplier<>(payloadSerializer, toConvert.getPayload().array());
-        Message<T> result = new Message<>(headers, payload);
+    public Message<T> revert(AvroMessage avroMessage) {
+        Headers headers = revertHeaders(avroMessage);
+        Supplier<T> payload = revertPayload(avroMessage);
 
-        return result;
+        return new Message<>(headers, payload);
     }
 
-    public Headers reverseHeaders(AvroMessage toConvert) {
-        Headers headers = new Headers(
-            toConvert.getHeaders()
-                .entrySet().stream()
-                .map(e -> Pair.of(e.getKey().toString(), e.getValue().toString()))
-                .collect(toList())
-        );
- 
-        return headers;
+    public Headers revertHeaders(AvroMessage avroMessage) {
+        Collection<Pair<String, String>> formattedHeaders = avroMessage
+            .getHeaders()
+            .entrySet().stream()
+            .map(e -> Pair.of(e.getKey().toString(), e.getValue().toString()))
+            .collect(toList());
+
+        return new Headers(formattedHeaders);
     }
 
-    public Supplier<T> reversePayload(AvroMessage toConvert) {
-        return new LazyDeserializerSupplier<>(payloadSerializer, toConvert.getPayload().array());
+    public Supplier<T> revertPayload(AvroMessage avroMessage) {
+        byte[] payloadBytes = avroMessage.getPayload().array();
+        return new LazyDeserializerSupplier<T>(payloadBytes);
+    }
+
+    private Map<CharSequence, CharSequence> getHeaders(Message<T> message) {
+        return message
+            .getAllHeaders()
+            .stream()
+            .collect(toMap(Pair::getKey, Pair::getValue));
+    }
+
+    private ByteBuffer getPayload(Message<T> message) {
+        T payload = message.getPayload();
+        byte[] payloadBytes = new GenericSerializer<T>().serialize(payload);
+
+        return ByteBuffer.wrap(payloadBytes);
     }
 }
