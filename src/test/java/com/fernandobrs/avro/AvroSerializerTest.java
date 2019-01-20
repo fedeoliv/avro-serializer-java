@@ -175,7 +175,7 @@ public class AvroSerializerTest  {
 
         // Deserialized header
         Headers headers = AvroSerializer.deserializeHeaders(messageBytes);
-
+        
         Optional<String> transactionIdHeader = headers.get(HeaderConfig.TransactionId);
         Optional<String> correlationIdHeader = headers.get(HeaderConfig.CorrelationId);
         Optional<String> eventTypeHeader = headers.get(HeaderConfig.EventType);

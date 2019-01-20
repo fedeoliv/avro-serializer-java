@@ -2,7 +2,7 @@
 
 [Apache Avro](https://avro.apache.org/) is a well known data serialization framework designed to provide compact, fast and binary data format. This repo contains an Avro-based framework for reactive microservices scenarios, bringing deserialization performance improvements.
 
-## Communication protocol for reactive microservices
+## Communication protocol
 
 Communication protocol between microservices is an important aspect to be considered for a reactive microservices architecture. There are several options out there – like XML, JSON, Protobuf, Avro or Thrift – and the decision of which one to use depends on your criteria about efficiency, ease of use, support in different programming languages, and so on.
 
@@ -61,3 +61,35 @@ Payload:
 
 Then you can just deserialize the header first instead of deserializing the entire payload to filter by event type.
 
+## Producer
+
+```java
+// Payload
+MyDomainObject payload = new MyDomainObject();
+
+// Header
+MessageHeader header = new MessageHeader();
+
+header.setTransactionId(payload.getTransactionId());
+header.setCorrelationId(payload.getCorrelationId());
+header.setEventType("Event1");
+header.setSource("My microservices name");
+
+// Message
+Message<MyDomainObject> message = new Message<>(header, payload);
+byte[] messageBytes = AvroSerializer.serialize(message);
+```
+
+## Consumer
+
+```java
+byte[] messageBytes = ...
+
+Headers headers = AvroSerializer.deserializeHeaders(messageBytes);
+Optional<String> myHeader = headers.get(HeaderConfig.EventType);
+
+// Filtering by event type
+if (myHeader.isPresent() && myHeader.get().equals("Event1")) {
+    MyDomainObject payload = AvroSerializer.deserializePayload(messageBytes);
+}
+```
