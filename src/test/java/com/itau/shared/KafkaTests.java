@@ -12,7 +12,7 @@ import com.itau.shared.messaging.messages.headers.MessageHeader;
 import com.itau.shared.messaging.serializers.AvroSerializer;
 import static org.junit.Assert.assertTrue;
 
-public class AppTest {
+public class KafkaTests {
     private ProducerServiceMock<String, byte[]> producer;
     private ConsumerServiceMock<String, byte[]> consumer;
     private final String TOPIC = "my_topic";
