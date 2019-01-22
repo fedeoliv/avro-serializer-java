@@ -1,4 +1,4 @@
-package com.fernandobrs.avro;
+package com.itau.shared;
 
 public class App {
     public static void main( String[] args ) {

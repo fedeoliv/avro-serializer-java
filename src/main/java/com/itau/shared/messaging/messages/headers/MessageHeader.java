@@ -1,4 +1,4 @@
-package com.fernandobrs.avro.messages.headers;
+package com.itau.shared.messaging.messages.headers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

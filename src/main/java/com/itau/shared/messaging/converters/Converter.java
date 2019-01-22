@@ -1,4 +1,4 @@
-package com.fernandobrs.avro.converters;
+package com.itau.shared.messaging.converters;
 
 /**
  * Two-way conversion contract. Converts from {@link F} to {@link T} and the other way around.

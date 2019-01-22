@@ -1,9 +1,9 @@
 
-package com.fernandobrs.avro;
+package com.fernandobrs.avro.events;
 
 import java.io.Serializable;
 
-public class SampleEvent implements Serializable {
+public class EventTest implements Serializable {
     private static final long serialVersionUID = 1L;
     private String transactionId;
     private String correlationId;

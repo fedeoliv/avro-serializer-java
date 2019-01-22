@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.fernandobrs.avro.messages;
+package com.itau.shared.messaging.messages;
 
 import org.apache.avro.specific.SpecificData;
 import org.apache.avro.message.BinaryMessageEncoder;
@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class AvroMessage extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -7213756268574846124L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AvroMessage\",\"namespace\":\"com.fernandobrs.avro.messages\",\"fields\":[{\"name\":\"headers\",\"type\":{\"type\":\"map\",\"values\":\"string\"}},{\"name\":\"payload\",\"type\":\"bytes\"}]}");
+  private static final long serialVersionUID = -851710559265965404L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AvroMessage\",\"namespace\":\"com.itau.shared.messaging.messages\",\"fields\":[{\"name\":\"headers\",\"type\":{\"type\":\"map\",\"values\":\"string\"}},{\"name\":\"payload\",\"type\":\"bytes\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -127,8 +127,8 @@ public class AvroMessage extends org.apache.avro.specific.SpecificRecordBase imp
    * Creates a new AvroMessage RecordBuilder.
    * @return A new AvroMessage RecordBuilder
    */
-  public static com.fernandobrs.avro.messages.AvroMessage.Builder newBuilder() {
-    return new com.fernandobrs.avro.messages.AvroMessage.Builder();
+  public static com.itau.shared.messaging.messages.AvroMessage.Builder newBuilder() {
+    return new com.itau.shared.messaging.messages.AvroMessage.Builder();
   }
 
   /**
@@ -136,8 +136,8 @@ public class AvroMessage extends org.apache.avro.specific.SpecificRecordBase imp
    * @param other The existing builder to copy.
    * @return A new AvroMessage RecordBuilder
    */
-  public static com.fernandobrs.avro.messages.AvroMessage.Builder newBuilder(com.fernandobrs.avro.messages.AvroMessage.Builder other) {
-    return new com.fernandobrs.avro.messages.AvroMessage.Builder(other);
+  public static com.itau.shared.messaging.messages.AvroMessage.Builder newBuilder(com.itau.shared.messaging.messages.AvroMessage.Builder other) {
+    return new com.itau.shared.messaging.messages.AvroMessage.Builder(other);
   }
 
   /**
@@ -145,8 +145,8 @@ public class AvroMessage extends org.apache.avro.specific.SpecificRecordBase imp
    * @param other The existing instance to copy.
    * @return A new AvroMessage RecordBuilder
    */
-  public static com.fernandobrs.avro.messages.AvroMessage.Builder newBuilder(com.fernandobrs.avro.messages.AvroMessage other) {
-    return new com.fernandobrs.avro.messages.AvroMessage.Builder(other);
+  public static com.itau.shared.messaging.messages.AvroMessage.Builder newBuilder(com.itau.shared.messaging.messages.AvroMessage other) {
+    return new com.itau.shared.messaging.messages.AvroMessage.Builder(other);
   }
 
   /**
@@ -167,7 +167,7 @@ public class AvroMessage extends org.apache.avro.specific.SpecificRecordBase imp
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.fernandobrs.avro.messages.AvroMessage.Builder other) {
+    private Builder(com.itau.shared.messaging.messages.AvroMessage.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.headers)) {
         this.headers = data().deepCopy(fields()[0].schema(), other.headers);
@@ -183,7 +183,7 @@ public class AvroMessage extends org.apache.avro.specific.SpecificRecordBase imp
      * Creates a Builder by copying an existing AvroMessage instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.fernandobrs.avro.messages.AvroMessage other) {
+    private Builder(com.itau.shared.messaging.messages.AvroMessage other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.headers)) {
         this.headers = data().deepCopy(fields()[0].schema(), other.headers);
@@ -208,7 +208,7 @@ public class AvroMessage extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'headers'.
       * @return This builder.
       */
-    public com.fernandobrs.avro.messages.AvroMessage.Builder setHeaders(java.util.Map<java.lang.CharSequence,java.lang.CharSequence> value) {
+    public com.itau.shared.messaging.messages.AvroMessage.Builder setHeaders(java.util.Map<java.lang.CharSequence,java.lang.CharSequence> value) {
       validate(fields()[0], value);
       this.headers = value;
       fieldSetFlags()[0] = true;
@@ -228,7 +228,7 @@ public class AvroMessage extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'headers' field.
       * @return This builder.
       */
-    public com.fernandobrs.avro.messages.AvroMessage.Builder clearHeaders() {
+    public com.itau.shared.messaging.messages.AvroMessage.Builder clearHeaders() {
       headers = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -247,7 +247,7 @@ public class AvroMessage extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'payload'.
       * @return This builder.
       */
-    public com.fernandobrs.avro.messages.AvroMessage.Builder setPayload(java.nio.ByteBuffer value) {
+    public com.itau.shared.messaging.messages.AvroMessage.Builder setPayload(java.nio.ByteBuffer value) {
       validate(fields()[1], value);
       this.payload = value;
       fieldSetFlags()[1] = true;
@@ -267,7 +267,7 @@ public class AvroMessage extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'payload' field.
       * @return This builder.
       */
-    public com.fernandobrs.avro.messages.AvroMessage.Builder clearPayload() {
+    public com.itau.shared.messaging.messages.AvroMessage.Builder clearPayload() {
       payload = null;
       fieldSetFlags()[1] = false;
       return this;

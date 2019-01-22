@@ -1,4 +1,4 @@
-package com.fernandobrs.avro.messages.headers;
+package com.itau.shared.messaging.messages.headers;
 
 import org.apache.commons.lang3.tuple.Pair;
 import java.util.Collection;

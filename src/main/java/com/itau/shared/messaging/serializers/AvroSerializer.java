@@ -1,14 +1,16 @@
-package com.fernandobrs.avro.serializers;
+package com.itau.shared.messaging.serializers;
 
 import org.apache.avro.io.*;
 import org.apache.avro.specific.SpecificDatumReader;
 import org.apache.avro.specific.SpecificDatumWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import com.fernandobrs.avro.converters.AvroMessageConverter;
-import com.fernandobrs.avro.messages.AvroMessage;
-import com.fernandobrs.avro.messages.headers.Headers;
-import com.fernandobrs.avro.messages.Message;
+
+import com.itau.shared.messaging.converters.AvroMessageConverter;
+import com.itau.shared.messaging.messages.AvroMessage;
+import com.itau.shared.messaging.messages.Message;
+import com.itau.shared.messaging.messages.headers.Headers;
+
 import static java.util.Objects.requireNonNull;
 
 public class AvroSerializer {

@@ -1,11 +1,12 @@
-package com.fernandobrs.avro.serializers;
+package com.itau.shared.messaging.serializers;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import com.fernandobrs.avro.messages.headers.Headers;
+
+import com.itau.shared.messaging.messages.headers.Headers;
 
 /**
  * Simple {@link Serializer} implementation for {@link Integer}s

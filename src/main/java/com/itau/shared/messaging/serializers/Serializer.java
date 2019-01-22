@@ -1,6 +1,6 @@
-package com.fernandobrs.avro.serializers;
+package com.itau.shared.messaging.serializers;
 
-import com.fernandobrs.avro.deserializers.Deserializer;
+import com.itau.shared.messaging.messages.deserializers.Deserializer;
 
 /**
  * Simple contract to be implemented by serialization/deserialization classes.

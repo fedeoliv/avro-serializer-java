@@ -1,8 +1,8 @@
-package com.fernandobrs.avro.deserializers;
+package com.itau.shared.messaging.messages.deserializers;
 
 import java.util.function.Supplier;
 
-import com.fernandobrs.avro.serializers.GenericSerializer;
+import com.itau.shared.messaging.serializers.GenericSerializer;
 
 import static java.util.Objects.requireNonNull;
 

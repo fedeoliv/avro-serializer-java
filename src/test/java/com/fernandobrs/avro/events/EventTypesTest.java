@@ -1,6 +1,6 @@
-package com.fernandobrs.avro;
+package com.fernandobrs.avro.events;
 
-public class EventTypes {
+public class EventTypesTest {
     // Balance Service
     public static final String BalanceSucceded = "BalanceSucceded";
 }

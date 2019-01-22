@@ -1,12 +1,14 @@
-package com.fernandobrs.avro.messages;
+package com.itau.shared.messaging.messages;
 
 import org.apache.commons.lang3.tuple.Pair;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.function.Supplier;
-import com.fernandobrs.avro.messages.headers.HeaderConfig;
-import com.fernandobrs.avro.messages.headers.Headers;
-import com.fernandobrs.avro.messages.headers.MessageHeader;
+
+import com.itau.shared.messaging.messages.headers.HeaderConfig;
+import com.itau.shared.messaging.messages.headers.Headers;
+import com.itau.shared.messaging.messages.headers.MessageHeader;
+
 import static java.util.Objects.requireNonNull;
 
 /**

@@ -1,15 +1,17 @@
-package com.fernandobrs.avro.converters;
+package com.itau.shared.messaging.converters;
 
 import org.apache.commons.lang3.tuple.Pair;
 import java.nio.ByteBuffer;
 import java.util.Collection;
 import java.util.Map;
 import java.util.function.Supplier;
-import com.fernandobrs.avro.deserializers.LazyDeserializerSupplier;
-import com.fernandobrs.avro.messages.AvroMessage;
-import com.fernandobrs.avro.messages.headers.Headers;
-import com.fernandobrs.avro.messages.Message;
-import com.fernandobrs.avro.serializers.GenericSerializer;
+
+import com.itau.shared.messaging.messages.AvroMessage;
+import com.itau.shared.messaging.messages.Message;
+import com.itau.shared.messaging.messages.deserializers.LazyDeserializerSupplier;
+import com.itau.shared.messaging.messages.headers.Headers;
+import com.itau.shared.messaging.serializers.GenericSerializer;
+
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 

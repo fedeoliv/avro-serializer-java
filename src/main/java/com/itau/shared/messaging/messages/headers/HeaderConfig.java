@@ -1,4 +1,4 @@
-package com.fernandobrs.avro.messages.headers;
+package com.itau.shared.messaging.messages.headers;
 
 public class HeaderConfig {
     public static final String MessageId = "id";
