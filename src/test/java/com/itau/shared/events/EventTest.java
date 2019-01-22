@@ -1,5 +1,5 @@
 
-package com.fernandobrs.avro.events;
+package com.itau.shared.events;
 
 import java.io.Serializable;
 

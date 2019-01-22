@@ -1,16 +1,15 @@
-package com.fernandobrs.avro;
+package com.itau.shared;
 
 import java.util.Optional;
 import java.util.UUID;
 
-import com.fernandobrs.avro.events.EventTest;
-import com.fernandobrs.avro.events.EventTypesTest;
+import com.itau.shared.events.EventTest;
+import com.itau.shared.events.EventTypesTest;
 import com.itau.shared.messaging.messages.Message;
 import com.itau.shared.messaging.messages.headers.HeaderConfig;
 import com.itau.shared.messaging.messages.headers.Headers;
 import com.itau.shared.messaging.messages.headers.MessageHeader;
 import com.itau.shared.messaging.serializers.AvroSerializer;
-
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;

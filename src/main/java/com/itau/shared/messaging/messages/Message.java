@@ -4,7 +4,6 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.function.Supplier;
-
 import com.itau.shared.messaging.messages.headers.HeaderConfig;
 import com.itau.shared.messaging.messages.headers.Headers;
 import com.itau.shared.messaging.messages.headers.MessageHeader;
@@ -61,13 +60,29 @@ public class Message<T> {
     private Headers createHeaders(MessageHeader header) {
         Headers headers = new Headers();
 
-        headers.put(HeaderConfig.MessageId, header.getId());
-        headers.put(HeaderConfig.TransactionId, header.getTransactionId());
-        headers.put(HeaderConfig.CorrelationId, header.getCorrelationId());
-        headers.put(HeaderConfig.EventType, header.getEventType());
-        headers.put(HeaderConfig.EventType, header.getEventType());
-        headers.put(HeaderConfig.Source, header.getSource());
-        headers.put(HeaderConfig.CreationTime, header.getCreationTime());
+        if (header.getId() != null) {
+            headers.put(HeaderConfig.MessageId, header.getId());
+        }
+
+        if (header.getTransactionId() != null) {
+            headers.put(HeaderConfig.TransactionId, header.getTransactionId());
+        }
+        
+        if (header.getCorrelationId() != null) {
+            headers.put(HeaderConfig.CorrelationId, header.getCorrelationId());
+        }
+        
+        if (header.getEventType() != null) {
+            headers.put(HeaderConfig.EventType, header.getEventType());
+        }
+        
+        if (header.getSource() != null) {
+            headers.put(HeaderConfig.Source, header.getSource());
+        }
+        
+        if (header.getCreationTime() != null) {
+            headers.put(HeaderConfig.CreationTime, header.getCreationTime());
+        }
 
         return headers;
     }

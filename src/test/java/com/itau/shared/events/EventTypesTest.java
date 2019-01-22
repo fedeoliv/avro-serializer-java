@@ -1,4 +1,4 @@
-package com.fernandobrs.avro.events;
+package com.itau.shared.events;
 
 public class EventTypesTest {
     // Balance Service
