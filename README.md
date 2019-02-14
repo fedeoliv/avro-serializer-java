@@ -19,18 +19,10 @@ When you have a scenario where microservices react to many events with large obj
 
 ```
 eventType: Event1
-transactionId: 21bc47b0-aadd-4370-9995-4bd520f91988
-correlationId: 01174afd-4d61-46de-a03e-32d34bd7ed87
-amount: 100.00
-...
-```
-
-And another message payload like this one:
-
-```
-eventType: Event2
-transactionId: 21bc47b0-aadd-4370-9995-4bd520f91988
-correlationId: 01174afd-4d61-46de-a03e-32d34bd7ed87
+transactionId: 123
+correlationId: 321
+sourceAccount: abc
+destinationAccount: def
 amount: 100.00
 ...
 ```
@@ -39,25 +31,7 @@ What if your microservice is consuming both events and need to filter the `event
 
 Here is where this framework shines: introduces the concept of **Message** comprised of `Headers` and `Payload`. Headers are key-value pairs for metadata purposes and Payload being whatever object needed. Now we can add the `eventType` as part of the header and other properties in the payload:
 
-```
-Header:
-    eventType: Event1
-Payload:
-    transactionId: 21bc47b0-aadd-4370-9995-4bd520f91988
-    correlationId: 01174afd-4d61-46de-a03e-32d34bd7ed87
-    amount: 100.00
-    ...
-```
-
-```
-Header:
-    eventType: Event2
-Payload:
-    transactionId: 21bc47b0-aadd-4370-9995-4bd520f91988
-    correlationId: 01174afd-4d61-46de-a03e-32d34bd7ed87
-    amount: 100.00
-    ...
-```
+![](./serializer.JPG)
 
 Then you can just deserialize the header first instead of deserializing the entire payload to filter by event type.
 
